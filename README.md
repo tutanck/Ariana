@@ -105,7 +105,7 @@ ariana = Ariana()
  .save("handleFiltering", filterInput => this.setState(filterInput))
  .save("log", s => console.log(s));
  
- //log all callbacks in the wrapper
+ //log all callbacks of the wrapper
  console.log(ariana.i); //-> ["handleFiltering","log"]
 ```
 
