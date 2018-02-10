@@ -1,9 +1,9 @@
 {
   "name": "ariana",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description":
     "React helper to ease passing parent components callbacks down to their children",
-  "main": "ariana.js",
+  "main": "Ariana.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
