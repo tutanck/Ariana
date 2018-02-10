@@ -14,7 +14,7 @@
 
 1. Save as many callbacks as you want from the parent component into a 'callbacksWrapper' object.
 
-```
+```JavaScript
 //In the Main.js component
 const wrapper = Ariana()
   .save('handleFiltering',filterInput => this.setState(filterInput))
@@ -23,18 +23,18 @@ const wrapper = Ariana()
 
 2. Pass the 'callbacksWrapper' to children components using 'props'.
 
-```
+```JavaScript
 //In the Filters.js component
 <Filters
-          text={this.state.filterText}
-          stockOnly={this.state.inStockOnly}
-          ariana={wrapper}
+   text={this.state.filterText}
+   stockOnly={this.state.inStockOnly}
+   ariana={wrapper}
         />
 ```
 
 3. Load any callback from a child component:
 
-```
+```JavaScript
 //In the Filters.js component
 
 //using the function name
@@ -50,7 +50,7 @@ ariana.loadn(0)({
 
 4. Overload parent callbacks behaviour by adding new callbacks functions at each stage of the react-app's components tree.
 
-```
+```JavaScript
 const lisa = ariana
       .addChild()
       .save("handleFiltering", () => ariana.loadn(0)({
@@ -65,7 +65,7 @@ const lisa = ariana
 1. Trying to override the 'handleFiltering' function does nothing:
 
 
-```
+```JavaScript
 ariana = Ariana()
  .save("handleFiltering", filterInput => this.setState(filterInput))
  .save("log", s => console.log(s))
