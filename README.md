@@ -111,4 +111,4 @@ ariana = Ariana()
 
 #### Example
 
-> [see the full example here](https://github.com/tutanck/Ariana/tree/master/example)
+> [See the full example here.](https://github.com/tutanck/Ariana/tree/master/example)
