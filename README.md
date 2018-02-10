@@ -14,7 +14,7 @@
 import Ariana from 'ariana';
 ```
 
-1. Save as many callbacks as you want from the parent component into a 'callbacksWrapper' object.
+1. Save as many callbacks as you want from the parent component into a callbacks 'wrapper' object.
 
 ```JavaScript
 //In the Main.js component
@@ -23,7 +23,7 @@ const wrapper = Ariana()
   .save('log',x => console.log(x));
 ```
 
-2. Pass the 'callbacksWrapper' to children components using 'props'.
+2. Pass the 'wrapper' to children components using 'props'.
 
 ```JavaScript
 //In the Filters.js component
@@ -31,20 +31,20 @@ const wrapper = Ariana()
    text={this.state.filterText}
    stockOnly={this.state.inStockOnly}
    ariana={wrapper}
-        />
+   />
 ```
 
-3. Load any callback from a child component:
+3. Load any callback from a child component
 
 ```JavaScript
 //In the Filters.js component
 
-//using the function name
+//using the callback's name
 ariana.load('handleFiltering')({
       filterText: "Ariana"
     });
 
-//Or using the function number
+//Or using the callback's number
 ariana.loadn(0)({
       filterText: "Ariana"
     });
@@ -64,7 +64,7 @@ const lisa = ariana
 
 ##### Good-to-know
 
-1. Trying to override the 'handleFiltering' function does nothing:
+1. Trying to override a callback function does nothing:
 
 
 ```JavaScript
