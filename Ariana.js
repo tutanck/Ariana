@@ -1,6 +1,6 @@
 "use strict";
 
-const GOD = "Ariana";
+const namae = "Ariana";
 
 //Handler
 export default () => new Wrapper();
@@ -29,8 +29,7 @@ class Wrapper {
     return this.prev;
   }
 
-  //LISA Methods
-  //LISA wa Ariana no imouto dakara ;) .
+  //LISA Methods -> //LISA wa Ariana no imouto dakara ;) .
   loadn(n) {
     //console.log(`Ariana: call of '${this.i[n]}'`); //debug
     return this.load(this.i[n]);
@@ -46,9 +45,9 @@ class Wrapper {
 
   save(k, v) {
     if (!str.valid(k))
-      throw `${GOD} can't save new fun: key is not a ${str.toString}!`;
+      throw `${namae} can't save new fun: key is not a ${str.toString}!`;
     if (!fun.valid(v))
-      throw `${GOD} can't save new fun: value is not a ${fun.toString}!`;
+      throw `${namae} can't save new fun: value is not a ${fun.toString}!`;
     if (!this.val[k]) this.val[k] = v; //silent ignore if fun already exists for k
     return this;
   }
