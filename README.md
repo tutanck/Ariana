@@ -109,6 +109,6 @@ ariana = Ariana()
  console.log(ariana.i); //-> ["handleFiltering","log"]
 ```
 
-#### Example
+### Example
 
 > [See the full example here.](https://github.com/tutanck/Ariana/tree/master/example)
