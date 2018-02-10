@@ -3,7 +3,7 @@ import Filters from "./Filters";
 import Form from "./Form";
 import Table from "./Table";
 import PRODUCTS from "../data/PRODUCTS";
-import Ariana from "../utils/Ariana";
+import Ariana from "ariana";
 
 let ariana;
 

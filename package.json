@@ -1,0 +1,28 @@
+{
+  "name": "ariana",
+  "version": "0.0.1",
+  "description":
+    "React helper to ease passing parent components callbacks down to their children",
+  "main": "ariana.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "preferGlobal": false,
+  "author": "tutanck",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tutanck/Ariana"
+  },
+  "contributors": ["tutanck <tutanck@gmail.com>"],
+  "keywords": [
+    "react",
+    "callbacks",
+    "components",
+    "communication",
+    "helper",
+    "tool",
+    "ariana"
+  ],
+  "license": "ISC",
+  "dependencies": {}
+}
