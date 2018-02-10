@@ -103,9 +103,9 @@ ariana.foo = 'bar';
 ```JavaScript
 ariana = Ariana()
  .save("handleFiltering", filterInput => this.setState(filterInput))
- .save("log", s => console.log(s))
- //trying to override 'handleFiltering' does nothing!
- .save("handleFiltering", () => console.log("Will never be called!"));
+ .save("log", s => console.log(s));
+ 
+ //log all callbacks in the wrapper
  console.log(ariana.i); //-> ["handleFiltering","log"]
 ```
 
