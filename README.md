@@ -5,12 +5,12 @@
 
 ## Installation
 
-* `npm install --save ariana`
+`npm install --save ariana`
 
 
 ## Usage
 
-> ```JavaScript
+```JavaScript
 import Ariana from 'ariana';
 ```
 
