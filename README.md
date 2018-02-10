@@ -59,7 +59,7 @@ const lisa = ariana
 
 #### Example
 
-> [see the full example here](https://github.com/tutanck/Ariana/example)
+> [see the full example here](https://github.com/tutanck/Ariana/tree/master/example)
 
 ##### Good-to-know
 
