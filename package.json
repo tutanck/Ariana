@@ -1,6 +1,6 @@
 {
   "name": "ariana",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description":
     "React helper to ease passing parent components callbacks down to their children",
   "main": "ariana.js",
