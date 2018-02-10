@@ -5,7 +5,7 @@
 
 ## Installation
 
-* `npm install --save ariana`
+* `JavaScript npm install --save ariana`
 
 
 ## Usage
