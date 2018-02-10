@@ -20,6 +20,7 @@ class Main extends Component {
       .save("log", s => console.log(s))
       //trying to override the 'handleFiltering' does nothing
       .save("handleFiltering", () => console.log("Will never be called!"));
+      ariana.val = "3"
   }
 
   render() {

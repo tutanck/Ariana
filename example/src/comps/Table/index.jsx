@@ -28,7 +28,7 @@ class Table extends Component {
       .addChild()
       .save("handleSorting", newSort => this.setState(newSort))
       .save("log", () =>
-        ariana.loadn(1)(
+        ariana.loadn(1)( //overload parent's 'log' callback function
           "Wow... Table/index.jsx component's 'log' callback has been called."
         )
       );
