@@ -12,7 +12,7 @@
 import Ariana from 'ariana';
 ```
 
-1. Save as many callbacks as you want from the parent component into a callbacks 'wrapper' object.
+1. Save as many callbacks as you want from the parent component into a callbacks 'wrapper' object:
 
 ```JavaScript
 //In the Main.js component
@@ -21,7 +21,7 @@ const wrapper = Ariana()
   .save('log',x => console.log(x));
 ```
 
-2. Pass the 'wrapper' to children components using 'props'.
+2. Pass the 'wrapper' to children components using 'props':
 
 ```JavaScript
 //In the Filters.js component
@@ -32,7 +32,7 @@ const wrapper = Ariana()
    />
 ```
 
-3. Load any callback from a child component using the 'wrapper' passed via 'props'.
+3. Load any callback from a child component using the 'wrapper' passed via 'props':
 
 ```JavaScript
 //In the Filters.js component
@@ -48,7 +48,7 @@ ariana.loadn(0)({
     });
 ```
 
-4. Overload parent callbacks behaviour by adding new callbacks functions at each stage of the react-app's components tree.
+4. Overload parent callbacks behaviour by adding new callbacks functions at each stage of the react-app's components tree:
 
 ```JavaScript
 // add a child wrapper to handle callbacks of this child (Table component)
@@ -62,7 +62,7 @@ ariana.loadn(0)({
       );
 ```
 
-5. Acces a grand parent callbacks by using the wrapper's 'parent' getter.
+5. Acces a grand parent callbacks by using the wrapper's 'parent' getter:
 
 ```JavaScript
 <button onClick={() => {
@@ -98,7 +98,7 @@ ariana = Ariana();
 ariana.foo = 'bar';
 ```
 
-3. You can access a wrapper's callbacks name array by calling the getter 'i' on it.
+3. You can access a wrapper's callbacks name array by calling the getter 'i' on it:
 
 ```JavaScript
 ariana = Ariana()
