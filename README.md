@@ -79,7 +79,7 @@ ariana.loadn(0)({
 >
 ```
 
-##### Good-to-know
+## Good-to-know
 
 1. Trying to override a callback function does nothing:
 
