@@ -5,14 +5,14 @@
 
 ## Installation
 
-* ```JavaScript
-npm install --save ariana
-```
+* `npm install --save ariana`
 
 
 ## Usage
 
-> `import Ariana from 'ariana';`
+> ```JavaScript
+import Ariana from 'ariana';
+```
 
 1. Save as many callbacks as you want from the parent component into a 'callbacksWrapper' object.
 
