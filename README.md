@@ -64,8 +64,12 @@ const lisa = ariana
 ##### Good-to-know
 
 1. Trying to override the 'handleFiltering' function does nothing:
-   ariana = Ariana()
-   .save("handleFiltering", filterInput => this.setState(filterInput))
-   .save("log", s => console.log(s))
-   //trying to override 'handleFiltering' does nothing!
-   .save("handleFiltering", () => console.log("Will never be called!"));
+
+
+```
+ariana = Ariana()
+ .save("handleFiltering", filterInput => this.setState(filterInput))
+ .save("log", s => console.log(s))
+ //trying to override 'handleFiltering' does nothing!
+ .save("handleFiltering", () => console.log("Will never be called!"));
+```
