@@ -2,9 +2,11 @@
 
 * Ariana ease passing components callbacks down to their children in a react application.
 
+
 ## Installation
 
 * `npm install --save ariana`
+
 
 ## Usage
 
@@ -57,9 +59,6 @@ const lisa = ariana
       .save("log", () => ariana.loadn(1)("log overload!"));
 ```
 
-#### Example
-
-> [see the full example here](https://github.com/tutanck/Ariana/tree/master/example)
 
 ##### Good-to-know
 
@@ -73,3 +72,8 @@ ariana = Ariana()
  //trying to override 'handleFiltering' does nothing!
  .save("handleFiltering", () => console.log("Will never be called!"));
 ```
+
+
+#### Example
+
+> [see the full example here](https://github.com/tutanck/Ariana/tree/master/example)
