@@ -21,6 +21,7 @@ class Wrapper {
   constructor(prev) {
     this.prev = prev;
     this.val = {};
+    this.orderedFunNames = [];
     Object.freeze(this); //immutable properties of this!
   }
 
@@ -40,7 +41,7 @@ class Wrapper {
   }
 
   get i() /*i = installed */ {
-    return Object.keys(this.val); //todo : verifier que l'ordre est tj conforme a l'ordre des save / sinon Arakiri, mazui kara
+    return this.orderedFunNames;
   }
 
   save(k, v) {
@@ -48,7 +49,10 @@ class Wrapper {
       throw `${namae} can't save new fun: key is not a ${str.toString}!`;
     if (!fun.valid(v))
       throw `${namae} can't save new fun: value is not a ${fun.toString}!`;
-    if (!this.val[k]) this.val[k] = v; //silent ignore if fun already exists for k
+    if (!this.val[k]) /*silent ignore if fun already exists for k*/ {
+      this.val[k] = v;
+      this.orderedFunNames.push(k);
+    }
     return this;
   }
 
