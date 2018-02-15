@@ -22,12 +22,11 @@ class Table extends Component {
       handleSorting: newSort => this.setState(newSort),
       log: () =>
         ariana.log(
-          //overload parent's 'log' callback function
           "Wow... Table/index.jsx component's 'log' callback has been called."
-        )
+        ) //overload parent's 'log' callback
     };
 
-    //instead add a child wrapper to handle callbacks of this child component
+    //add a child wrapper to handle callbacks of this child component
     lisa = ariana.child(tableCallbacks);
 
     const sortF = (a, b) => {

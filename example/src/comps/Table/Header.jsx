@@ -7,33 +7,34 @@ export default ({ sort: { by, asc }, column, lisa }) => {
       {column}
       <button
         className={by === column && asc ? "ProductTableHeader-current" : ""}
-        onClick={() =>
-         {
+        onClick={() => {
           lisa.handleSorting({
             sort: {
               by: column,
               asc: true
             }
-          })
-          lisa.log("This text won't be displayed!")
-         }
-        }
+          });
+          lisa.log("This text won't be displayed!");
+        }}
       >
         &#x25B2;
       </button>
       <button
         className={by === column && !asc ? "ProductTableHeader-current" : ""}
         onClick={() => {
-          lisa.handleSorting/*load the callback n°0 from the parent component*/({
+          /*use the the parent component's callback*/
+          lisa.handleSorting({
             sort: {
               by: column,
               asc: !true
             }
-          })
-          /*load the callback n°1 from the grand parent component*/
-          //it could be possible to do lisa.parent.parent....loadn(1)
-          lisa.parent.log("Jeez... Main.jsx component's 'log' callback has been called.")}
-        }
+          });
+          /*use the the grand parent component's callback*/
+          //it could be possible to do lisa.parent.parent.[...].log()
+          lisa.parent.log(
+            "Jeez... Main.jsx component's 'log' callback has been called."
+          );
+        }}
       >
         &#x25BC;
       </button>

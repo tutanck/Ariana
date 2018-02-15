@@ -18,7 +18,7 @@ class Main extends Component {
 
     const mainCallbacks = {
       handleFiltering: filterInput => this.setState(filterInput),
-      log: s => console.log(s)
+      log: s => alert(s)
     };
 
     ariana = Ariana(mainCallbacks);
