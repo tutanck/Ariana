@@ -16,12 +16,12 @@ class Main extends Component {
       inStockOnly: false
     };
 
-    const callbacks = {
+    const mainCallbacks = {
       handleFiltering: filterInput => this.setState(filterInput),
       log: s => console.log(s)
     };
 
-    ariana = Ariana(callbacks);
+    ariana = Ariana(mainCallbacks);
     //ariana.val = "3"; //debug //todo move in a UT
   }
 

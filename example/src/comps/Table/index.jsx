@@ -18,15 +18,17 @@ class Table extends Component {
   render() {
     const { ariana } = this.props;
 
-    //instead add a child wrapper to handle callbacks of this child component
-    lisa = ariana.child({
+    const tableCallbacks = {
       handleSorting: newSort => this.setState(newSort),
       log: () =>
         ariana.log(
           //overload parent's 'log' callback function
           "Wow... Table/index.jsx component's 'log' callback has been called."
         )
-    });
+    };
+
+    //instead add a child wrapper to handle callbacks of this child component
+    lisa = ariana.child(tableCallbacks);
 
     const sortF = (a, b) => {
       const { by, asc } = this.state.sort;
