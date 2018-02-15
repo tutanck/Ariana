@@ -3,7 +3,8 @@ import Filters from "./Filters";
 import Form from "./Form";
 import Table from "./Table";
 import PRODUCTS from "../data/PRODUCTS";
-import Ariana from "ariana";
+//import Ariana from "ariana";
+import Ariana from "../Ariana";
 
 let ariana;
 
@@ -15,12 +16,12 @@ class Main extends Component {
       inStockOnly: false
     };
 
-    ariana = Ariana()
-      .save("handleFiltering", filterInput => this.setState(filterInput))
-      .save("log", s => console.log(s))
-      //trying to override the 'handleFiltering' does nothing
-      .save("handleFiltering", () => console.log("Will never be called!"));
-    //ariana.val = "3"//debug
+    //ariana.val = "3"//debug*/ //move in UT
+
+    ariana = Ariana({
+      handleFiltering: filterInput => this.setState(filterInput),
+      log: s => console.log(s)
+    });
   }
 
   render() {

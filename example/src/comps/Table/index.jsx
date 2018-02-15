@@ -18,20 +18,15 @@ class Table extends Component {
   render() {
     const { ariana } = this.props;
 
-    //does nothing
-    ariana.save("log", () =>
-      console.log("Will not replace the parent's callback!")
-    );
-
     //instead add a child wrapper to handle callbacks of this child component
-    lisa = ariana
-      .addChild()
-      .save("handleSorting", newSort => this.setState(newSort))
-      .save("log", () =>
-        ariana.loadn(1)( //overload parent's 'log' callback function
+    lisa = ariana.child({
+      handleSorting: newSort => this.setState(newSort),
+      log: () =>
+        ariana._.log(
+          //overload parent's 'log' callback function
           "Wow... Table/index.jsx component's 'log' callback has been called."
         )
-      );
+    });
 
     const sortF = (a, b) => {
       const { by, asc } = this.state.sort;

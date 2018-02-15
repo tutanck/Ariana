@@ -9,13 +9,13 @@ export default ({ sort: { by, asc }, column, lisa }) => {
         className={by === column && asc ? "ProductTableHeader-current" : ""}
         onClick={() =>
          {
-          lisa.loadn(0)({
+          lisa._.handleSorting({
             sort: {
               by: column,
               asc: true
             }
           })
-          lisa.loadn(1)("This text won't be displayed!")
+          lisa._.log("This text won't be displayed!")
          }
         }
       >
@@ -24,7 +24,7 @@ export default ({ sort: { by, asc }, column, lisa }) => {
       <button
         className={by === column && !asc ? "ProductTableHeader-current" : ""}
         onClick={() => {
-          lisa.loadn(0)/*load the callback n°0 from the parent component*/({
+          lisa._.handleSorting/*load the callback n°0 from the parent component*/({
             sort: {
               by: column,
               asc: !true
@@ -32,7 +32,7 @@ export default ({ sort: { by, asc }, column, lisa }) => {
           })
           /*load the callback n°1 from the grand parent component*/
           //it could be possible to do lisa.parent.parent....loadn(1)
-          lisa.parent.loadn(1)("Jeez... Main.jsx component's 'log' callback has been called.")}
+          lisa.parent._.log("Jeez... Main.jsx component's 'log' callback has been called.")}
         }
       >
         &#x25BC;

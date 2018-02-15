@@ -81,32 +81,11 @@ ariana.loadn(0)({
 
 ## Good-to-know
 
-1. Trying to override a callback function does nothing:
-
-```JavaScript
-ariana = Ariana()
- .save("handleFiltering", filterInput => this.setState(filterInput))
- .save("log", s => console.log(s))
- //trying to override 'handleFiltering' does nothing!
- .save("handleFiltering", () => console.log("Will never be called!"));
-```
-
-2. Trying to directly modify a wrapper throws an error :
+1. Trying to directly modify a wrapper throws an error :
 
 ```JavaScript
 ariana = Ariana();
 ariana.foo = 'bar';
-```
-
-3. You can access a wrapper's callbacks name array by calling the getter 'i' on it:
-
-```JavaScript
-ariana = Ariana()
- .save("handleFiltering", filterInput => this.setState(filterInput))
- .save("log", s => console.log(s));
- 
- //log all callbacks of the wrapper
- console.log(ariana.i); //-> ["handleFiltering","log"]
 ```
 
 ### Example
