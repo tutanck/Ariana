@@ -22,7 +22,7 @@ class Table extends Component {
     lisa = ariana.child({
       handleSorting: newSort => this.setState(newSort),
       log: () =>
-        ariana._.log(
+        ariana.log(
           //overload parent's 'log' callback function
           "Wow... Table/index.jsx component's 'log' callback has been called."
         )

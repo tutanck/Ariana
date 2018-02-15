@@ -16,12 +16,13 @@ class Main extends Component {
       inStockOnly: false
     };
 
-    //ariana.val = "3"//debug*/ //move in UT
-
-    ariana = Ariana({
+    const callbacks = {
       handleFiltering: filterInput => this.setState(filterInput),
       log: s => console.log(s)
-    });
+    };
+
+    ariana = Ariana(callbacks);
+    //ariana.val = "3"; //debug //todo move in a UT
   }
 
   render() {

@@ -11,6 +11,23 @@ const isFun = arg => arg != null && typeof arg === "function";
 const isStr = arg => arg != null && typeof arg === "string";
 
 const msg = `${kimiNoNaWa} : 'callbacksObject' must be an Object with a function as value for each key.`;
+const msg2 = `${kimiNoNaWa} : wtf : a wrapper is a read-only object!`;
+const msg3 = `${kimiNoNaWa} : wtf : val has a protected access!`;
+
+//Proxy
+const proxyfy = wrapper =>
+  new Proxy(wrapper, {
+    get: function(target, prop) {
+      if (prop === "child") return target.child;
+      if (prop === "parent") return target.parent;
+      if (prop === "val") return target.val; //throw msg3; //todo
+      if (prop === "eject") return target.eject;
+      return prop in target.val ? target.val[prop] : undefined;
+    },
+    set: function(target, name, value) {
+      throw msg2;
+    }
+  });
 
 //Wrapper
 class Wrapper {
@@ -29,13 +46,13 @@ class Wrapper {
     Object.freeze(this); //immutable properties of this!
   }
 
-  get _() {
-    return this.val;
+  child(callbacksObject) {
+    return proxyfy(new Wrapper(callbacksObject, this));
   }
 
-  child(callbacksObject) {
-    return new Wrapper(callbacksObject, this);
+  eject() {
+    return { ...this.val };
   }
 }
 
-export default o => new Wrapper(o);
+export default o => proxyfy(new Wrapper(o));

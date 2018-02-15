@@ -2,8 +2,7 @@ import React from "react";
 
 export default ({ text, stockOnly, ariana }) => {
   const handeleEvent = e => {
-    
-    ariana._.handleFiltering({
+    ariana.handleFiltering({
       [e.target.name]:
         e.target[e.target.type === "checkbox" ? "checked" : "value"]
     });
