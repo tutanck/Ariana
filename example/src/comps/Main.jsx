@@ -3,8 +3,8 @@ import Filters from "./Filters";
 import Form from "./Form";
 import Table from "./Table";
 import PRODUCTS from "../data/PRODUCTS";
-//import Ariana from "ariana";
-import Ariana from "../Ariana";
+import Ariana from "ariana";
+
 
 class Main extends Component {
   constructor(props) {
