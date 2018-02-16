@@ -6,8 +6,6 @@ import PRODUCTS from "../data/PRODUCTS";
 //import Ariana from "ariana";
 import Ariana from "../Ariana";
 
-let ariana;
-
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -15,29 +13,28 @@ class Main extends Component {
       filterText: "",
       inStockOnly: false
     };
+  }
 
+  render() {
     const mainCallbacks = {
       handleFiltering: filterInput => this.setState(filterInput),
       log: s => alert(s)
     };
 
-    ariana = Ariana(mainCallbacks);
-    //ariana.val = "3"; //debug //todo move in a UT
-  }
+    const wrapper = Ariana(mainCallbacks);
 
-  render() {
     return (
       <div className="App">
         <Filters
           text={this.state.filterText}
           stockOnly={this.state.inStockOnly}
-          ariana={ariana}
+          ariana={wrapper}
         />
         <Table
           products={PRODUCTS}
           filter={this.state.filterText}
           stockOnly={this.state.inStockOnly}
-          ariana={ariana}
+          ariana={wrapper}
         />
         <Form />
       </div>

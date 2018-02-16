@@ -10,9 +10,8 @@ const isFun = arg => arg != null && typeof arg === "function";
 
 const isStr = arg => arg != null && typeof arg === "string";
 
-const msg = `${kimiNoNaWa} : 'callbacksObject' must be an Object with a function as value for each key.`;
+const msg = `${kimiNoNaWa} : the 'callbacks object' must be an Object with a function as value for each key.`;
 const msg2 = `${kimiNoNaWa} : wtf : a wrapper is a read-only object!`;
-const msg3 = `${kimiNoNaWa} : wtf : val has a protected access!`;
 
 //Proxy
 const proxyfy = wrapper =>
@@ -20,7 +19,7 @@ const proxyfy = wrapper =>
     get: function(target, prop) {
       if (prop === "child") return target.child;
       if (prop === "parent") return target.parent;
-      if (prop === "val") return target.val; //throw msg3; //todo
+      if (prop === "val") return target.val; 
       if (prop === "eject") return target.eject;
       return prop in target.val ? target.val[prop] : undefined;
     },

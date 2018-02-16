@@ -30,10 +30,9 @@ export default ({ sort: { by, asc }, column, lisa }) => {
             }
           });
           /*use the the grand parent component's callback*/
-          //it could be possible to do lisa.parent.parent.[...].log()
           lisa.parent.log(
             "Jeez... Main.jsx component's 'log' callback has been called."
-          );
+          ); //it could be possible to do lisa.parent.parent.[...].log()
         }}
       >
         &#x25BC;

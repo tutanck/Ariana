@@ -12,19 +12,27 @@
 import Ariana from 'ariana';
 ```
 
-1. Save as many callbacks as you want from the parent component into a callbacks 'wrapper' object:
+1. Create a 'callbacks object' (an object that contains all component's callbacks) : 
 
 ```JavaScript
-//In the Main.js component
-const wrapper = Ariana()
-  .save('handleFiltering',filterInput => this.setState(filterInput))
-  .save('log',x => console.log(x));
+//In Main.jsx
+const mainCallbacks = {
+  handleFiltering: filterInput => this.setState(filterInput),
+  log: s => alert(s)
+};
 ```
 
-2. Pass the 'wrapper' to children components using 'props':
+2. Instantiate a new root wrapper with the callbacks object by calling Ariana :
 
 ```JavaScript
-//In the Filters.js component
+//In Main.jsx
+const wrapper = Ariana(mainCallbacks);
+```
+
+3. Pass the 'wrapper' to children components using 'props' :
+
+```JavaScript
+//In Main.jsx
 <Filters
    text={this.state.filterText}
    stockOnly={this.state.inStockOnly}
@@ -32,61 +40,59 @@ const wrapper = Ariana()
    />
 ```
 
-3. Load any callback from a child component using the 'wrapper' passed via 'props':
+3. Use any callback in a child component using the 'wrapper' passed via 'props' :
 
 ```JavaScript
-//In the Filters.js component
+//In Filters.jsx
+const { ariana } = this.props;
 
-//using the callback's name
-ariana.load('handleFiltering')({
-      filterText: "Ariana"
-    });
-
-//Or using the callback's number
-ariana.loadn(0)({
-      filterText: "Ariana"
-    });
+ariana.handleFiltering({
+  filterText: "Ariana"
+});
 ```
 
 4. Overload parent callbacks behaviour by adding new callbacks functions at each stage of the react-app's components tree:
 
 ```JavaScript
-// add a child wrapper to handle callbacks of this child (Table component)
-    lisa = ariana
-      .addChild()
-      .save("handleSorting", newSort => this.setState(newSort))
-      .save("log", () =>
-        ariana.loadn(1)( //overload parent's 'log' callback function
-          "Wow... Table/index.jsx component's 'log' callback has been called."
-        )
-      );
+const { ariana } = this.props;
+
+const tableCallbacks = {
+  handleSorting: newSort => this.setState(newSort),
+  log: () =>
+    ariana.log(
+      "Wow... Table/index.jsx component's 'log' callback has been called."
+    ) //overload parent's 'log' callback
+};
+
+//add a child wrapper to handle callbacks of this child component
+const lisa = ariana.child(tableCallbacks);
 ```
 
 5. Acces a grand parent callbacks by using the wrapper's 'parent' getter:
 
 ```JavaScript
-<button onClick={() => {
-    lisa.loadn(0)/*load the callback n°0 from the parent component*/({
+const { ariana } = this.props;
+
+<button
+  onClick={() => {
+    /*use the the parent component's callback*/
+    lisa.handleSorting({
       sort: {
         by: column,
         asc: !true
       }
-    })
-    /*load the callback n°1 from the grand parent component*/
-    //it could be possible to do lisa.parent.parent....loadn(1)
-    lisa.parent.loadn(1)("Jeez... Main.jsx component's 'log' callback has been called.")}
-  }
+    });
+    /*use the the grand parent component's callback*/
+    lisa.parent.log(
+      "Jeez... Main.jsx component's 'log' callback has been called."
+    ); //it could be possible to do lisa.parent.parent.[...].log()
+  }}
 >
 ```
 
-## Good-to-know
+## Limitation
 
-1. Trying to directly modify a wrapper throws an error :
-
-```JavaScript
-ariana = Ariana();
-ariana.foo = 'bar';
-```
+* You can use any key name in callback objects except the names reserved by Ariana : `'child'`, `'parent'`, `'val'` and `'eject'` which are functions names of the wrapper.
 
 ### Example
 

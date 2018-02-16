@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Row from "./Row";
 
-let lisa;
-
 class Table extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +25,7 @@ class Table extends Component {
     };
 
     //add a child wrapper to handle callbacks of this child component
-    lisa = ariana.child(tableCallbacks);
+    const lisa = ariana.child(tableCallbacks);
 
     const sortF = (a, b) => {
       const { by, asc } = this.state.sort;
