@@ -54,6 +54,7 @@ ariana.handleFiltering({
 4. Overload parent callbacks behaviour by adding new callbacks functions at each stage of the react-app's components tree:
 
 ```JavaScript
+//In Table/index.jsx
 const { ariana } = this.props;
 
 const tableCallbacks = {
@@ -66,11 +67,15 @@ const tableCallbacks = {
 
 //add a child wrapper to handle callbacks of this child component
 const lisa = ariana.child(tableCallbacks);
+
+//pass lisa via props to this component's child (Header.jsx)
+<Header lisa={lisa} />
 ```
 
 5. Acces a grand parent callbacks by using the wrapper's 'parent' getter:
 
 ```JavaScript
+//In Header.jsx
 <button
   onClick={() => {
     /*use the the parent component's callback*/
