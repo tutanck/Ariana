@@ -71,8 +71,6 @@ const lisa = ariana.child(tableCallbacks);
 5. Acces a grand parent callbacks by using the wrapper's 'parent' getter:
 
 ```JavaScript
-const { ariana } = this.props;
-
 <button
   onClick={() => {
     /*use the the parent component's callback*/
