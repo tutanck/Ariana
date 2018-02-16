@@ -72,7 +72,7 @@ const lisa = ariana.child(tableCallbacks);
 <Header lisa={lisa} />
 ```
 
-5. Acces a grand parent callbacks by using the wrapper's 'parent' getter:
+5. Access a grandparent's callbacks by using the wrapper's 'parent' property :
 
 ```JavaScript
 //In Header.jsx
@@ -93,9 +93,16 @@ const lisa = ariana.child(tableCallbacks);
 >
 ```
 
+6. At any time you can create a copy of the callbacks object contained in the wrapper : 
+```JavaScript
+const mainCallbacksCopy = ariana.eject();
+```
+
 ## Limitation
 
 * You can use any key name in callback objects except the names reserved by Ariana : `'child'`, `'parent'`, `'val'` and `'eject'` which are functions names of the wrapper.
+
+
 
 ### Example
 
