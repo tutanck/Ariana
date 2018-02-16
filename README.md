@@ -100,7 +100,7 @@ const mainCallbacksCopy = ariana.eject();
 
 ## Limitation
 
-* You can use any key name in callback objects except the names reserved by Ariana : `'child'`, `'parent'`, `'val'` and `'eject'` which are functions names of the wrapper.
+* You can use any key name in callback objects except the words reserved by Ariana : `'child'`, `'parent'`, `'val'` and `'eject'` which are functions names of the wrapper.
 
 
 
