@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Row from "./Row";
 
-let lisa;
-
 class Table extends Component {
   constructor(props) {
     super(props);
@@ -18,20 +16,16 @@ class Table extends Component {
   render() {
     const { ariana } = this.props;
 
-    //does nothing
-    ariana.save("log", () =>
-      console.log("Will not replace the parent's callback!")
-    );
-
-    //instead add a child wrapper to handle callbacks of this child component
-    lisa = ariana
-      .addChild()
-      .save("handleSorting", newSort => this.setState(newSort))
-      .save("log", () =>
-        ariana.loadn(1)( //overload parent's 'log' callback function
+    const tableCallbacks = {
+      handleSorting: newSort => this.setState(newSort),
+      log: () =>
+        ariana.log(
           "Wow... Table/index.jsx component's 'log' callback has been called."
-        )
-      );
+        ) //overload parent's 'log' callback
+    };
+
+    //add a child wrapper to handle callbacks of this child component
+    const lisa = ariana.child(tableCallbacks);
 
     const sortF = (a, b) => {
       const { by, asc } = this.state.sort;

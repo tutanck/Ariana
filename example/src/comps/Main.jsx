@@ -5,7 +5,6 @@ import Table from "./Table";
 import PRODUCTS from "../data/PRODUCTS";
 import Ariana from "ariana";
 
-let ariana;
 
 class Main extends Component {
   constructor(props) {
@@ -14,28 +13,28 @@ class Main extends Component {
       filterText: "",
       inStockOnly: false
     };
-
-    ariana = Ariana()
-      .save("handleFiltering", filterInput => this.setState(filterInput))
-      .save("log", s => console.log(s))
-      //trying to override the 'handleFiltering' does nothing
-      .save("handleFiltering", () => console.log("Will never be called!"));
-    //ariana.val = "3"//debug
   }
 
   render() {
+    const mainCallbacks = {
+      handleFiltering: filterInput => this.setState(filterInput),
+      log: s => alert(s)
+    };
+
+    const wrapper = Ariana(mainCallbacks);
+
     return (
       <div className="App">
         <Filters
           text={this.state.filterText}
           stockOnly={this.state.inStockOnly}
-          ariana={ariana}
+          ariana={wrapper}
         />
         <Table
           products={PRODUCTS}
           filter={this.state.filterText}
           stockOnly={this.state.inStockOnly}
-          ariana={ariana}
+          ariana={wrapper}
         />
         <Form />
       </div>
