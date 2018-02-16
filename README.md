@@ -68,7 +68,7 @@ const tableCallbacks = {
 //add a child wrapper to handle callbacks of this child component
 const lisa = ariana.child(tableCallbacks);
 
-//pass lisa via props to this component's child (Header.jsx)
+//pass lisa(ariana's child) via props to this component's child (Header.jsx)
 <Header lisa={lisa} />
 ```
 
