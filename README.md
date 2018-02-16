@@ -85,7 +85,7 @@ const lisa = ariana.child(tableCallbacks);
         asc: !true
       }
     });
-    /*use the the grand parent component's callback*/
+    /*use the the grandparent component's callback*/
     lisa.parent.log(
       "Jeez... Main.jsx component's 'log' callback has been called."
     ); //it could be possible to do lisa.parent.parent.[...].log()
